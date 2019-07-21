@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
 
   "env": {
     "node": true,
@@ -11,6 +12,8 @@
   "rules": {
     "linebreak-style": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "import/prefer-default-export": "off",
     "no-shadow": [
       2,
       { "builtinGlobals": false, "hoist": "never", "allow": [] }
