@@ -5,13 +5,13 @@ import range from 'lodash/range';
 import Cell from '../Cell';
 import Button from '../Button';
 
-const layout = range(0, 16).map(n => {
+const layout = range(0, 16).map((n) => {
   const row = Math.floor(n / 4);
   const col = n % 4;
   return [80 * col, 80 * row];
 });
 
-/**Game Component
+/** Game Component
  * @param {Array} param.items array items for render
  * @param {Function} param.resetGame cb for reset current game
  * @param {Function} param.moveCell cb for move Cell
@@ -19,16 +19,12 @@ const layout = range(0, 16).map(n => {
  */
 
 class Game extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleReset = () => {
     const { resetGame } = this.props;
     resetGame();
   };
 
-  handleMove = index => {
+  handleMove = (index) => {
     const { items, moveCell } = this.props;
     const cells = [...items];
     const emptyIndex = items.indexOf(0);
@@ -74,7 +70,7 @@ class Game extends React.Component {
 }
 
 Game.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(PropTypes.number).isRequired,
   isWon: PropTypes.bool.isRequired,
   resetGame: PropTypes.func,
   moveCell: PropTypes.func,
