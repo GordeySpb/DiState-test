@@ -1,17 +1,31 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { get } from 'lodash/fp';
+import { every } from 'lodash';
+import { createSelector } from 'reselect';
 
-import { moveCell } from '../actions/index';
-
+import { moveCell, resetGame } from '../actions/index';
 import Game from '../components/Game';
 
-const mapStateToProps = ({ board: { items } }) => ({ items });
+const getItems = get('board.items');
+const getWinState = createSelector(
+  getItems,
+  items => every(items, (value, index, array) => {
+      value = value || 16;
+      return index === 0 || parseInt(array[index - 1]) <= parseInt(value);
+    }),
+);
 
-const mapDispatchToProp = dispatch => bindActionCreators({ moveCell }, dispatch);
+const mapStateToProps = state => ({
+  items: getItems(state),
+  isWon: getWinState(state),
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ moveCell, resetGame }, dispatch);
 
 const GameContainer = connect(
   mapStateToProps,
-  mapDispatchToProp,
+  mapDispatchToProps,
 )(Game);
 
 export default GameContainer;

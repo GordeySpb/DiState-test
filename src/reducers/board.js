@@ -1,16 +1,25 @@
-import { MOVE_CELL } from '../actions/index';
+import { MOVE_CELL, RESET_GAME } from '../actions';
 
-import { getRandomPosition } from '../helpers/index';
+import { getRandomPosition } from '../helpers';
 
 const initialState = {
-  // items: getRandomPosition(),
-  items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0],
+  items: getRandomPosition(),
 };
 
 const board = (state = initialState, { type, payload }) => {
+  let newState;
+
   switch (type) {
     case MOVE_CELL:
-      return { items: [...payload.cells] };
+      return {
+        items: [...payload.cells],
+      };
+
+    case RESET_GAME:
+      newState = getRandomPosition();
+      return {
+        items: [...newState],
+      };
 
     default:
       return state;

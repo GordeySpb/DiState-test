@@ -5,6 +5,11 @@
   align-items: center;
   justify-content: center;
   background-color: gray;
+  flex-direction: column;
+}
+
+.wrapp {
+  height: 400px;
 }
 
 .game {
@@ -12,6 +17,15 @@
   text-align: center;
   width: 310px;
   height: 310px;
+  margin-bottom: 30px;
+}
+
+.win {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
 }
 
 .cell {
@@ -31,4 +45,19 @@
 
 .empty {
   opacity: 0;
+}
+
+.button-wrapp {
+  display: flex;
+  justify-content: center;
+}
+
+.reset {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
 }
