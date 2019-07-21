@@ -1,5 +1,4 @@
 import { MOVE_CELL, RESET_GAME } from '../actions';
-
 import { getRandomPosition } from '../helpers';
 
 const initialState = {
