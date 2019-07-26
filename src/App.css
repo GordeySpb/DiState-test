@@ -1,4 +1,4 @@
-.App {
+.App { // TODO все остальные классы начинаются с маленькой буквы. Стиль должен быть единый
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-.wrapp {
+.wrapp { // TODO плохое название (почему не .wrapper к примеру?)
   height: 400px;
 }
 
@@ -52,7 +52,7 @@
   justify-content: center;
 }
 
-.reset {
+.reset { // TODO чтобы понять что этот класс для кнопки нужно заглядывать в тело, хотелось бы понимать по название(.button-reset)
   padding: 5px 15px;
   border: none;
   border-radius: 3px;

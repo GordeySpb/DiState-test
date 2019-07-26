@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 
 const Cell = ({
- value, className, style, onClick 
+ value, className, style, onClick
 }) => (
   <div
     onClick={onClick}
@@ -26,7 +26,7 @@ Cell.propTypes = {
   value: PropTypes.number.isRequired,
   className: PropTypes.string.isRequired,
   style: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func, // TODO в конце запятая. Я бы её убрал, но это вкусовщина. Вроде используется prettier, но что-то его пока не видно. Посмотрите инструмент husky(он эту проблему решит на корню)
 };
 
 Cell.defaultProps = {
