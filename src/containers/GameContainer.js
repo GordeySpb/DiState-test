@@ -11,7 +11,8 @@ const getItems = get('board.items');
 const getWinState = createSelector(
   getItems,
   items => every(items, (value, index, array) => {
-      value = value || 16;
+      value = value || 16; // TODO что происходит?
+      // TODO linter ругается на parseInt (нужно указать radix)
       return index === 0 || parseInt(array[index - 1]) <= parseInt(value);
     }),
 );

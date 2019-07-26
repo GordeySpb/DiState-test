@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# TODO поскольку нет .idea для .gitignore, то видимо разработка идёт не в IDE от Jetbrains?
+.idea
