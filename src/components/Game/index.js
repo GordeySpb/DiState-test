@@ -42,7 +42,7 @@ class Game extends React.Component {
     const { items, isWon } = this.props;
 
     return (
-      <div className="wrapp">
+      <div className="wrapper">
         {isWon && <div className="win">Winner!!!</div>}
         <div className="game">
           {items.map((i, key) => {
