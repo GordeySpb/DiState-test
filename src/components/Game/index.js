@@ -5,10 +5,13 @@ import range from 'lodash/range';
 import Cell from '../Cell';
 import Button from '../Button';
 
-const layout = range(0, 16).map((n) => {
+const maxCells = 16;
+const coordinate = 80;
+
+const layout = range(0, maxCells).map((n) => {
   const row = Math.floor(n / 4);
   const col = n % 4;
-  return [80 * col, 80 * row];
+  return [coordinate * col, coordinate * row];
 });
 
 /** Game Component
