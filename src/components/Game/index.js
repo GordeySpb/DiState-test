@@ -62,7 +62,9 @@ class Game extends React.Component {
           })}
         </div>
         <div className="button-wrapp">
-          <Button onClick={this.handleReset}>Click</Button>
+          <Button onClick={this.handleReset} name="Reset">
+            Click
+          </Button>
         </div>
       </div>
     );

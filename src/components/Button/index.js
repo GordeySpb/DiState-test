@@ -4,20 +4,18 @@ import PropTypes from 'prop-types';
 /**
  *
  * @param {Function} param.onClick cb for reset current game
+ * @param {string} param.name name for button
  */
 
-const Button = ({ onClick }) => (
-  <button onClick={onClick} className="reset" type="button">
-    Reset
+const Button = ({ onClick, name }) => (
+  <button onClick={onClick} className="button-reset" type="button">
+    {name}
   </button>
 );
 
 Button.propTypes = {
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  onClick: () => {},
+  onClick: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Button;
