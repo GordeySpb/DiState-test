@@ -54,7 +54,7 @@ class Game extends React.Component {
 
             return (
               <Cell
-                key={key}
+                key={`${key}key`}
                 className={cellClass}
                 value={key}
                 style={{ transform: `${translate3d}` }}
