@@ -4,7 +4,7 @@ import './App.css';
 import GameContainer from './containers/GameContainer';
 
 const App = () => (
-  <div className="App">
+  <div className="app">
     <GameContainer />
   </div>
 );
