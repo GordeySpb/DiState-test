@@ -28,13 +28,12 @@ class Game extends React.Component {
   };
 
   handleMove = (index) => {
-    const { items, moveCell } = this.props;
-    const cells = [...items];
-    const emptyIndex = items.indexOf(0);
-    const targetIndex = items.indexOf(index);
-    const dif = Math.abs(targetIndex - emptyIndex);
+    const { cells, moveCell } = this.props;
+    const emptyIndex = cells.indexOf(0);
+    const targetIndex = cells.indexOf(index);
+    const diff = Math.abs(targetIndex - emptyIndex);
 
-    if (dif === 1 || dif === 4) {
+    if (diff === 1 || diff === 4) {
       cells[emptyIndex] = index;
       cells[targetIndex] = 0;
       moveCell({ cells });
@@ -42,15 +41,15 @@ class Game extends React.Component {
   };
 
   render() {
-    const { items, isWon } = this.props;
+    const { cells, isWon } = this.props;
 
     return (
       <div className="wrapper">
         {isWon && <div className="win">Winner!!!</div>}
         <div className="game">
-          {items.map((i, key) => {
+          {cells.map((cell, key) => {
             const cellClass = key ? 'cell' : 'empty cell';
-            const [x, y] = layout[items.indexOf(key)];
+            const [x, y] = layout[cells.indexOf(key)];
             const translate3d = `translate3d(${x}px,${y}px,0) scale(1.1)`;
 
             return (
@@ -75,7 +74,7 @@ class Game extends React.Component {
 }
 
 Game.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.number).isRequired,
+  cells: PropTypes.arrayOf(PropTypes.number).isRequired,
   isWon: PropTypes.bool.isRequired,
   resetGame: PropTypes.func,
   moveCell: PropTypes.func,

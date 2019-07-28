@@ -10,14 +10,14 @@ import Game from '../components/Game';
 const getItems = get('board.items');
 const getWinState = createSelector(
   getItems,
-  items => every(items, (value, index, array) => {
-      value = value || 16;
-      return index === 0 || parseInt(array[index - 1]) <= parseInt(value);
-    }),
+  items => every(
+      items,
+      (value, index, array) => index === 0 || parseInt(array[index - 1], 10) <= parseInt(value, 10),
+    ),
 );
 
 const mapStateToProps = state => ({
-  items: getItems(state),
+  cells: getItems(state),
   isWon: getWinState(state),
 });
 
